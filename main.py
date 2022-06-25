@@ -44,7 +44,7 @@ def test():
 
 
 def get_student_data(name):
-    file = open(f"{name}.csv", 'w+')
+    file = open(f"./data/{name}.csv", 'r')
 
     reader = csv.reader(file)
     # Date, Grade, Test Number, Test Score
@@ -70,7 +70,11 @@ def get_student_data(name):
 
 def parse_existing_csv():
     base_path = './data'
+
+    # Creates list of existing files in base_path
     file_ls = [f for f in os.listdir(base_path) if isfile(join(base_path, f))]
+
+    # Prints list of existing files
     print(file_ls)
 
 
@@ -87,10 +91,9 @@ def get_input():
         "test_score": test_score
     }
 
-    f = open(f"./data/{name}.csv", 'w+')
+    f = open(f"./data/{name}.csv", 'a+')
     writer = csv.writer(f, lineterminator='\n')
     writer.writerow([str(datetime.today()), grade, test_num, test_score])
-
     return student
 
 
@@ -128,6 +131,8 @@ if __name__ == '__main__':
 
     current_student = get_student_data(new_student_data["name"])
 
+
+    """
     graph_student(current_student)
 
     xt = np.arange(0, 13, 1)  # Create
@@ -135,3 +140,4 @@ if __name__ == '__main__':
     plt.xlim([0, 12])
     plt.ylim([0, 12])
     plt.show()
+    """
