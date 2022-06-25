@@ -68,7 +68,8 @@ def get_student_data(name):
     return full_student_data
 
 
-def parse_existing_csv():
+# Prints list of csv files in ./data folder
+def print_students():
     base_path = './data'
 
     # Creates list of existing files in base_path
@@ -78,10 +79,11 @@ def parse_existing_csv():
     print(file_ls)
 
 
+# TODO: add input normalization for clean data
 def get_input():
     name = input('Enter the student\'s name: ')
     grade = input('Enter the student\'s grade: ')
-    test_num = input('Enter the student\'s assessment number: ')
+    test_num = input('Enter the student\'s assessment number: ') # num is unclear, maybe change
     test_score = input('Enter the student\'s score: ')
 
     student = {
@@ -97,6 +99,7 @@ def get_input():
     return student
 
 
+# TODO: Make graph more readable and look better
 def graph_student(data):
     # Graph Setup
     fig, ax = plt.subplots(figsize=(10, 5), layout='constrained')
@@ -124,15 +127,20 @@ def graph_student(data):
     ax.set_title("Mathnasium: Canton")  # Add a title to the axes.
     ax.legend()  # Add a legend.
 
+# TODO: Make lines indicating previous progress and use function to generate projection of future progress
+def graph_lines():
+    return
+
 
 if __name__ == '__main__':
-    parse_existing_csv()
+    print_students()
+
+    # Takes in user input for most recent test score
     new_student_data = get_input()
 
+    # Sets current_student to array of all tests
     current_student = get_student_data(new_student_data["name"])
 
-
-    """
     graph_student(current_student)
 
     xt = np.arange(0, 13, 1)  # Create
@@ -140,4 +148,3 @@ if __name__ == '__main__':
     plt.xlim([0, 12])
     plt.ylim([0, 12])
     plt.show()
-    """
