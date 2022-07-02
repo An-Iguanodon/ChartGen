@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime
-from dataclasses import dataclass
+import streamlit as st
 import csv
 import os
 from os.path import isfile, join
@@ -126,6 +126,8 @@ def graph_student(data):
     ax.set_ylabel('Mastery')  # Add a y-label to the axes.
     ax.set_title("Mathnasium: Canton")  # Add a title to the axes.
     ax.legend()  # Add a legend.
+    st.write(fig)
+    st.write(ax)
 
 # TODO: Make lines indicating previous progress and use function to generate projection of future progress
 def graph_lines():
